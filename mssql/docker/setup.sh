@@ -4,7 +4,7 @@
 docker pull mcr.microsoft.com/mssql/server:2022-latest
 
 # Run the container for first time (password using default password)
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=$sqlAdminOriginalPassword" \
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=${sqlAdminOriginalPassword}" -u 0:0\
    -p 1433:1433 --name $sqlServerName --hostname $sqlServerName \
    -d \
    mcr.microsoft.com/mssql/server:2022-latest
