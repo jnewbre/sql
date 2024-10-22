@@ -9,6 +9,14 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=${sqlAdminOriginalPassword}"
    -d \
    mcr.microsoft.com/mssql/server:2022-latest
 
+# Clone git repo
+apt-get update &&  apt-get install -y git
+
+cd ~/home
+mkdir git
+
+git clone https://github.com/jnewbre/sql.git
+
 # Run bash shell to connect to SQL server
 docker exec -it ${sqlServerName} "bash"
 
